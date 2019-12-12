@@ -38,4 +38,12 @@ class PortfoliosController < ApplicationController
         @portfolio_items = Portfolio.find(params[:id])
       end
 
+      def destroy
+        @portfolio_items = Portfolio.find(params[:id])
+        @portfolio_items.destroy
+        respond_to do |format|
+            format.html { redirect_to portfolios_path, notice: 'Portfolio was successfully updated.' }
+        end
+      end
+
 end
